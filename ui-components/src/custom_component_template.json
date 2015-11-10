@@ -1,0 +1,14 @@
+{
+    "custom_components":[
+        {
+            "cls":"starling.extensions.pixelmask.PixelMaskDisplayObject",
+            "params":[
+                {"name":"mask", "component":"popup", "cls":true, "disable":true, "default_value":null, "editPropertyClass":"com.sgn.starlingbuilder.editor.ui.DisplayObjectPropertyPopup"},
+                {"name":"isAnimated", "component":"check", "default_value":true},
+                {"name":"inverted", "component":"check", "default_value":false}
+            ],
+            "container":true,
+            "tag":"container"
+        }
+    ]
+}

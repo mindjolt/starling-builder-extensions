@@ -1,0 +1,3 @@
+[submodule "starling-builder-editor"]
+	path = starling-builder-editor
+	url = https://github.com/mindjolt/starling-builder-editor
