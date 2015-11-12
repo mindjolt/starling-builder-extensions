@@ -15,5 +15,5 @@ git clone https://github.com/mindjolt/starling-builder-extensions --recursive
 
 ####Documentation
 
-For more information, please visit our wiki page at http://wiki.starling-framework.org/builder/start
+For more information, please visit our wiki page at http://wiki.starling-framework.org/builder/extensions
 
