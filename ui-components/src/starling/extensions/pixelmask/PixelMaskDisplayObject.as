@@ -79,7 +79,7 @@ package starling.extensions.pixelmask
 			refreshRenderTextures(null);
 		}
 
-		public function set mask(mask:DisplayObject) : void
+		override public function set mask(mask:DisplayObject) : void
 		{
 			
 			// clean up existing mask if there is one
@@ -100,7 +100,7 @@ package starling.extensions.pixelmask
 			}
 		}
 
-        public function get mask():DisplayObject
+        override public function get mask():DisplayObject
         {
             return _mask;
         }
