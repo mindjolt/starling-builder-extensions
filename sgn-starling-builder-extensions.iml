@@ -2,7 +2,7 @@
 <module type="Flex" version="4">
   <component name="FlexBuildConfigurationManager" active="components">
     <configurations>
-      <configuration name="components" target-platform="Mobile" pure-as="true" output-type="RuntimeLoadedModule" main-class="EmbeddedComponents" output-file="EmbeddedComponents.swf" output-folder="$MODULE_DIR$/out/production/sgn-starling-builder-extensions">
+      <configuration name="components" target-platform="Mobile" pure-as="true" output-type="RuntimeLoadedModule" main-class="EmbeddedComponents" output-file="EmbeddedComponents.swf" output-folder="$MODULE_DIR$/deliverable">
         <dependencies>
           <entries>
             <entry library-id="d8c9301a-0237-4c04-8d90-9a976674ce3f">
@@ -16,7 +16,7 @@
         <packaging-android />
         <packaging-ios />
       </configuration>
-      <configuration name="theme" target-platform="Mobile" pure-as="true" output-type="RuntimeLoadedModule" main-class="EmbeddedTheme" output-file="EmbeddedTheme.swf" output-folder="$MODULE_DIR$/out/production/sgn-starling-builder-extensions">
+      <configuration name="theme" target-platform="Mobile" pure-as="true" output-type="RuntimeLoadedModule" main-class="EmbeddedTheme" output-file="EmbeddedTheme.swf" output-folder="$MODULE_DIR$/deliverable">
         <dependencies>
           <entries>
             <entry library-id="b6c387c6-1806-4c0b-98bf-4953ab190492">
