@@ -24,8 +24,8 @@
  */
 package feathers.themes
 {
-    import com.sgn.starlingbuilder.editor.themes.IUIEditorThemeMediator;
-    import com.sgn.starlingbuilder.editor.themes.UIEditorTheme;
+    import starlingbuilder.editor.themes.IUIEditorThemeMediator;
+    import starlingbuilder.editor.themes.UIEditorTheme;
 
     import feathers.controls.Alert;
     import feathers.controls.Button;

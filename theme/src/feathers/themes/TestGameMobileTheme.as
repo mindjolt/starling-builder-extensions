@@ -24,7 +24,7 @@
  */
 package feathers.themes
 {
-    import com.sgn.starlingbuilder.editor.themes.IUIEditorThemeMediator;
+    import starlingbuilder.editor.themes.IUIEditorThemeMediator;
 
     import flash.display.Bitmap;
     import flash.display.BitmapData;
