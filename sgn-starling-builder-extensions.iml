@@ -5,7 +5,7 @@
       <configuration name="components" target-platform="Mobile" pure-as="true" output-type="RuntimeLoadedModule" main-class="EmbeddedComponents" output-file="EmbeddedComponents.swf" output-folder="$MODULE_DIR$/deliverable">
         <dependencies>
           <entries>
-            <entry library-id="d8c9301a-0237-4c04-8d90-9a976674ce3f">
+            <entry library-id="48a59659-68b8-403f-9ecd-af4e79fc3cb3">
               <dependency linkage="Merged" />
             </entry>
           </entries>
@@ -19,7 +19,7 @@
       <configuration name="theme" target-platform="Mobile" pure-as="true" output-type="RuntimeLoadedModule" main-class="EmbeddedTheme" output-file="EmbeddedTheme.swf" output-folder="$MODULE_DIR$/deliverable">
         <dependencies>
           <entries>
-            <entry library-id="b6c387c6-1806-4c0b-98bf-4953ab190492">
+            <entry library-id="9f4d3425-5b56-4a84-b82e-1dd4b131a7b3">
               <dependency linkage="Merged" />
             </entry>
           </entries>
@@ -44,24 +44,24 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module-library" exported="">
       <library type="flex">
-        <properties id="d8c9301a-0237-4c04-8d90-9a976674ce3f" />
+        <properties id="9f4d3425-5b56-4a84-b82e-1dd4b131a7b3" />
         <CLASSES>
-          <root url="file://$MODULE_DIR$/../sgn-starling-builder-editor/libs" />
+          <root url="file://$MODULE_DIR$/starling-builder-editor/libs" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
-        <jarDirectory url="file://$MODULE_DIR$/../sgn-starling-builder-editor/libs" recursive="false" />
+        <jarDirectory url="file://$MODULE_DIR$/starling-builder-editor/libs" recursive="false" />
       </library>
     </orderEntry>
     <orderEntry type="module-library" exported="">
       <library type="flex">
-        <properties id="b6c387c6-1806-4c0b-98bf-4953ab190492" />
+        <properties id="48a59659-68b8-403f-9ecd-af4e79fc3cb3" />
         <CLASSES>
-          <root url="file://$MODULE_DIR$/../sgn-starling-builder-editor/libs" />
+          <root url="file://$MODULE_DIR$/starling-builder-editor/libs" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
-        <jarDirectory url="file://$MODULE_DIR$/../sgn-starling-builder-editor/libs" recursive="false" />
+        <jarDirectory url="file://$MODULE_DIR$/starling-builder-editor/libs" recursive="false" />
       </library>
     </orderEntry>
   </component>
