@@ -30,6 +30,20 @@
         <packaging-android />
         <packaging-ios />
       </configuration>
+      <configuration name="test" target-platform="Desktop" pure-as="true" main-class="starlingbuidler.extensions.uicomponents.Main" output-file="test.swf" output-folder="$MODULE_DIR$/out/production">
+        <dependencies>
+          <entries>
+            <entry library-id="b2425b56-44f7-4f57-8ad1-2071de638498">
+              <dependency linkage="Merged" />
+            </entry>
+          </entries>
+          <sdk name="AIRSDK" />
+        </dependencies>
+        <compiler-options />
+        <packaging-air-desktop use-generated-descriptor="false" custom-descriptor-path="$MODULE_DIR$/tests/src/starlingbuidler/extensions/uicomponents/Main-app.xml" package-file-name="test" />
+        <packaging-android />
+        <packaging-ios />
+      </configuration>
     </configurations>
     <compiler-options />
   </component>
@@ -40,6 +54,8 @@
       <sourceFolder url="file://$MODULE_DIR$/theme/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/starling-builder-editor/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/starling-builder-editor/starling-builder-engine/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/starling-builder-editor/tests/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tests/src" isTestSource="false" />
     </content>
     <orderEntry type="jdk" jdkName="AIRSDK" jdkType="Flex SDK Type (new)" />
     <orderEntry type="sourceFolder" forTests="false" />
@@ -57,6 +73,17 @@
     <orderEntry type="module-library" exported="">
       <library type="flex">
         <properties id="48a59659-68b8-403f-9ecd-af4e79fc3cb3" />
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/starling-builder-editor/libs" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+        <jarDirectory url="file://$MODULE_DIR$/starling-builder-editor/libs" recursive="false" />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library type="flex">
+        <properties id="b2425b56-44f7-4f57-8ad1-2071de638498" />
         <CLASSES>
           <root url="file://$MODULE_DIR$/starling-builder-editor/libs" />
         </CLASSES>
