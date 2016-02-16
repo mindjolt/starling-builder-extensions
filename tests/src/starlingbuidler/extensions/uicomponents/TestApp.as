@@ -8,7 +8,9 @@
 package starlingbuidler.extensions.uicomponents
 {
     import feathers.controls.LayoutGroup;
+    import feathers.core.IFeathersControl;
     import feathers.layout.AnchorLayout;
+    import feathers.themes.TestGameMobileTheme;
 
     import starling.core.Starling;
     import starling.display.DisplayObject;
@@ -20,12 +22,13 @@ package starlingbuidler.extensions.uicomponents
     import starling.textures.Texture;
 
     import starlingbuilder.editor.data.TemplateData;
+    import starlingbuilder.editor.themes.IUIEditorThemeMediator;
     import starlingbuilder.editor.themes.MetalWorksDesktopTheme2;
     import starlingbuilder.engine.util.ParamUtil;
     import starlingbuilder.util.feathers.FeathersUIUtil;
     import starlingbuilder.util.ui.inspector.PropertyPanel;
 
-    public class TestApp extends LayoutGroup
+    public class TestApp extends LayoutGroup implements IUIEditorThemeMediator
     {
         [Embed(source="boostslot_bg_green.png")]
         public static const TEXTURE:Class;
@@ -49,7 +52,8 @@ package starlingbuidler.extensions.uicomponents
 
             _stage.addEventListener(Event.RESIZE, onResize);
 
-            new MetalWorksDesktopTheme2();
+            new MetalWorksDesktopTheme2(this);
+            new TestGameMobileTheme(false, this);
 
             _texture = Texture.fromBitmap(new TEXTURE);
 
@@ -85,6 +89,11 @@ package starlingbuidler.extensions.uicomponents
         {
             width = _stage.stageWidth = Starling.current.viewPort.width = event.width;
             height = _stage.stageHeight = Starling.current.viewPort.height = event.height;
+        }
+
+        public function useGameTheme(target:IFeathersControl):Boolean
+        {
+            return _container.contains(target as DisplayObject);
         }
     }
 }
