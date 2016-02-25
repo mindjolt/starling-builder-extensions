@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="starling-builder-extensions" default="all" basedir=".">
+    <property file="build.properties"/>
+    <target name="all" depends="theme,ui-components"/>
+    <target name="theme">
+        <echo message="Building EmbeddedTheme.swf"/>
+        <java jar="${compc}" dir="../deliverable" fork="true" failonerror="true">
+            <arg value="-load-config=${airsdk.config}"/>
+            <arg value="-include-sources+=../theme/src"/>
+            <arg value="-source-path+=../starling-builder-editor/src"/>
+            <arg value="-library-path+=../starling-builder-editor/libs"/>
+            <arg value="-directory=true"/>
+            <arg value="-output+=../deliverable/EmbeddedTheme"/>
+        </java>
+        <copy file="../deliverable/EmbeddedTheme/library.swf" tofile="../deliverable/EmbeddedTheme.swf" overwrite="true"/>
+        <delete dir="../deliverable/EmbeddedTheme"/>
+    </target>
+    <target name="ui-components">
+        <echo message="Building EmbeddedComponents.swf"/>
+        <java jar="${compc}" dir="../deliverable" fork="true" failonerror="true">
+            <arg value="-load-config=${airsdk.config}"/>
+            <arg value="-include-sources+=../ui-components/src"/>
+            <arg value="-source-path+=../starling-builder-editor/src"/>
+            <arg value="-library-path+=../starling-builder-editor/libs"/>
+            <arg value="-directory=true"/>
+            <arg value="-output+=../deliverable/EmbeddedComponents"/>
+        </java>
+        <copy file="../deliverable/EmbeddedComponents/library.swf" tofile="../deliverable/EmbeddedComponents.swf" overwrite="true"/>
+        <delete dir="../deliverable/EmbeddedComponents"/>
+    </target>
+</project>

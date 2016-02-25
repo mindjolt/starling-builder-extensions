@@ -46,13 +46,13 @@ package feathers.themes
 		/**
 		 * @private
 		 */
-		[Embed(source="/../assets/images/metalworks_mobile.xml",mimeType="application/octet-stream")]
+		[Embed(source="../../../assets/images/metalworks_mobile.xml",mimeType="application/octet-stream")]
 		protected static const ATLAS_XML:Class;
 
 		/**
 		 * @private
 		 */
-		[Embed(source="/../assets/images/metalworks_mobile.png")]
+		[Embed(source="../../../assets/images/metalworks_mobile.png")]
 		protected static const ATLAS_BITMAP:Class;
 
 		/**
