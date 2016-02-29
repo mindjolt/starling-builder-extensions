@@ -30,7 +30,7 @@
         <packaging-android />
         <packaging-ios />
       </configuration>
-      <configuration name="test" target-platform="Desktop" pure-as="true" main-class="starlingbuidler.extensions.uicomponents.Main" output-file="test.swf" output-folder="$MODULE_DIR$/out/production">
+      <configuration name="test" target-platform="Desktop" pure-as="true" main-class="Main" output-file="test.swf" output-folder="$MODULE_DIR$/out/production">
         <dependencies>
           <entries>
             <entry library-id="b2425b56-44f7-4f57-8ad1-2071de638498">
@@ -40,7 +40,7 @@
           <sdk name="AIRSDK" />
         </dependencies>
         <compiler-options />
-        <packaging-air-desktop use-generated-descriptor="false" custom-descriptor-path="$MODULE_DIR$/tests/src/starlingbuidler/extensions/uicomponents/Main-app.xml" package-file-name="test" />
+        <packaging-air-desktop use-generated-descriptor="false" custom-descriptor-path="$MODULE_DIR$/tests/src/Main-app.xml" package-file-name="test" />
         <packaging-android />
         <packaging-ios />
       </configuration>

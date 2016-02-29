@@ -5,8 +5,7 @@
  *  This program is free software. You can redistribute and/or modify it in
  *  accordance with the terms of the accompanying license agreement.
  */
-package starlingbuidler.extensions.uicomponents
-{
+package {
     import feathers.controls.LayoutGroup;
     import feathers.core.IFeathersControl;
     import feathers.layout.AnchorLayout;

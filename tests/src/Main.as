@@ -5,8 +5,7 @@
  *  This program is free software. You can redistribute and/or modify it in
  *  accordance with the terms of the accompanying license agreement.
  */
-package starlingbuidler.extensions.uicomponents
-{
+package {
     import flash.display.Sprite;
     import flash.events.Event;
     import starling.core.Starling;
