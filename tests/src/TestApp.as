@@ -6,6 +6,9 @@
  *  accordance with the terms of the accompanying license agreement.
  */
 package {
+    import com.sgn.uicomponents.IDisplayObjectFactory;
+    import com.sgn.uicomponents.ImageFactory;
+
     import feathers.controls.LayoutGroup;
     import feathers.core.IFeathersControl;
     import feathers.layout.AnchorLayout;
@@ -13,7 +16,6 @@ package {
 
     import starling.core.Starling;
     import starling.display.DisplayObject;
-    import starling.display.Image;
     import starling.display.Sprite;
     import starling.display.Stage;
     import starling.events.Event;
@@ -32,8 +34,12 @@ package {
         [Embed(source="boostslot_bg_green.png")]
         public static const TEXTURE:Class;
 
+        [Embed(source="generic_gift.png")]
+        public static const ICON:Class;
+
         private var _stage:Stage;
         private var _texture:Texture;
+        private var _icon:Texture;
         private var _object:DisplayObject;
         private var _container:Sprite;
         private var _propertyPanel:PropertyPanel;
@@ -55,6 +61,7 @@ package {
             new TestGameMobileTheme(false, this);
 
             _texture = Texture.fromBitmap(new TEXTURE);
+            _icon = Texture.fromBitmap(new ICON);
 
             _container = new Sprite();
             _container.x = 200;
@@ -70,7 +77,8 @@ package {
          */
         private function createDisplayObject():void
         {
-            _object = new Image(_texture);
+            var factory:IDisplayObjectFactory = new ImageFactory(_texture);
+            _object = factory.create();
             _container.addChild(_object);
         }
 
