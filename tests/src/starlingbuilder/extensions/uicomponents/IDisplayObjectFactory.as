@@ -1,7 +1,7 @@
 /**
  * Created by hyh on 3/3/16.
  */
-package com.sgn.uicomponents
+package starlingbuilder.extensions.uicomponents
 {
     import starling.display.DisplayObject;
 

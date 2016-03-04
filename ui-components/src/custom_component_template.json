@@ -1,5 +1,18 @@
 {
     "custom_components":[
+
+        {
+            "cls":"starlingbuilder.extensions.uicomponents.ContainerButton",
+            "params":[
+                {"name":"width", "min":0, "read_only":true, "link":true},
+                {"name":"height", "min":0, "read_only":true, "link":true},
+                {"name":"scaleX", "step":0.01, "default_value":1},
+                {"name":"scaleY", "step":0.01, "default_value":1}
+            ],
+            "container":true,
+            "tag":"container"
+        },
+
         {
             "cls":"starling.extensions.pixelmask.PixelMaskDisplayObject",
             "params":[
