@@ -7,11 +7,13 @@ package
 
     import starling.extensions.pixelmask.PixelMaskDisplayObject;
 
+    import starlingbuilder.extensions.uicomponents.ContainerButton;
+
     public class EmbeddedComponents extends Sprite
     {
         [Embed(source="custom_component_template.json", mimeType="application/octet-stream")]
         public static const custom_component_template:Class;
 
-        public static const linkers:Array = [];
+        public static const linkers:Array = [ContainerButton];
     }
 }

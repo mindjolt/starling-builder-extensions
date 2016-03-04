@@ -6,8 +6,6 @@
  *  accordance with the terms of the accompanying license agreement.
  */
 package {
-    import com.sgn.uicomponents.IDisplayObjectFactory;
-    import com.sgn.uicomponents.ImageFactory;
 
     import feathers.controls.LayoutGroup;
     import feathers.core.IFeathersControl;
@@ -26,6 +24,8 @@ package {
     import starlingbuilder.editor.themes.IUIEditorThemeMediator;
     import starlingbuilder.editor.themes.MetalWorksDesktopTheme2;
     import starlingbuilder.engine.util.ParamUtil;
+    import starlingbuilder.extensions.uicomponents.IDisplayObjectFactory;
+    import starlingbuilder.extensions.uicomponents.ImageFactory;
     import starlingbuilder.util.feathers.FeathersUIUtil;
     import starlingbuilder.util.ui.inspector.PropertyPanel;
 
