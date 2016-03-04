@@ -29,7 +29,7 @@
         <delete dir="deliverable/EmbeddedComponents"/>
     </target>
     <target name="test">
-        <echo message="Building Test.swf"/>
+        <echo message="Building Main.swf"/>
         <java jar="${mxmlc}" dir="." fork="true" failonerror="true">
             <arg value="-load-config=${airsdk.config}"/>
             <arg value="-debug=true"/>
@@ -41,7 +41,7 @@
             <arg value="-source-path+=starling-builder-editor/starling-builder-engine/src"/>
             <arg value="-external-library-path+=${airsdk.framework}/libs/air/airglobal.swc"/>
             <arg value="-library-path+=starling-builder-editor/libs"/>
-            <arg value="-output+=deliverable/test/Test.swf"/>
+            <arg value="-output+=deliverable/test/Main.swf"/>
             <arg value="tests/src/Main.as"/>
         </java>
         <copy file="tests/src/Main-app.xml" todir="deliverable/test"/>
