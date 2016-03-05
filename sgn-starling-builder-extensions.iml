@@ -5,7 +5,10 @@
       <configuration name="components" target-platform="Mobile" pure-as="true" output-type="RuntimeLoadedModule" main-class="EmbeddedComponents" output-file="EmbeddedComponents.swf" output-folder="$MODULE_DIR$/deliverable">
         <dependencies>
           <entries>
-            <entry library-id="48a59659-68b8-403f-9ecd-af4e79fc3cb3">
+            <entry library-id="3d197f85-0e2e-4aaa-8c12-17bd57ffeafb">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-id="aa935906-d843-4516-8d92-45f3941ea0d9">
               <dependency linkage="Merged" />
             </entry>
           </entries>
@@ -19,7 +22,10 @@
       <configuration name="theme" target-platform="Mobile" pure-as="true" output-type="RuntimeLoadedModule" main-class="EmbeddedTheme" output-file="EmbeddedTheme.swf" output-folder="$MODULE_DIR$/deliverable">
         <dependencies>
           <entries>
-            <entry library-id="9f4d3425-5b56-4a84-b82e-1dd4b131a7b3">
+            <entry library-id="3cb097d9-23d1-4eeb-a6d7-2610821c276c">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-id="64344c1e-8819-465b-8d4e-b9adfe0500bc">
               <dependency linkage="Merged" />
             </entry>
           </entries>
@@ -33,7 +39,10 @@
       <configuration name="test" target-platform="Desktop" pure-as="true" main-class="Main" output-file="test.swf" output-folder="$MODULE_DIR$/out/production">
         <dependencies>
           <entries>
-            <entry library-id="b2425b56-44f7-4f57-8ad1-2071de638498">
+            <entry library-id="9cba3582-afb6-4ff1-a2c3-5e5ee7d8e189">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-id="d7342224-94ee-45b5-94f9-b9f9bd6e9e70">
               <dependency linkage="Merged" />
             </entry>
           </entries>
@@ -49,6 +58,12 @@
   </component>
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
+    <content url="file://$USER_HOME$/projects/Starling-Framework">
+      <sourceFolder url="file://$USER_HOME$/projects/Starling-Framework/starling/src" isTestSource="false" />
+    </content>
+    <content url="file://$USER_HOME$/projects/feathers">
+      <sourceFolder url="file://$USER_HOME$/projects/feathers/source" isTestSource="false" />
+    </content>
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/ui-components/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/theme/src" isTestSource="false" />
@@ -61,35 +76,62 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module-library" exported="">
       <library type="flex">
-        <properties id="9f4d3425-5b56-4a84-b82e-1dd4b131a7b3" />
+        <properties id="9cba3582-afb6-4ff1-a2c3-5e5ee7d8e189" />
         <CLASSES>
-          <root url="file://$MODULE_DIR$/starling-builder-editor/libs" />
+          <root url="jar://$MODULE_DIR$/../sgn-starling-builder-editor/libs/as3commons-lang-0.3.7.swc!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
-        <jarDirectory url="file://$MODULE_DIR$/starling-builder-editor/libs" recursive="false" />
       </library>
     </orderEntry>
     <orderEntry type="module-library" exported="">
       <library type="flex">
-        <properties id="48a59659-68b8-403f-9ecd-af4e79fc3cb3" />
+        <properties id="d7342224-94ee-45b5-94f9-b9f9bd6e9e70" />
         <CLASSES>
-          <root url="file://$MODULE_DIR$/starling-builder-editor/libs" />
+          <root url="jar://$MODULE_DIR$/../sgn-starling-builder-editor/libs/as3commons-reflect-1.6.4.swc!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
-        <jarDirectory url="file://$MODULE_DIR$/starling-builder-editor/libs" recursive="false" />
       </library>
     </orderEntry>
     <orderEntry type="module-library" exported="">
       <library type="flex">
-        <properties id="b2425b56-44f7-4f57-8ad1-2071de638498" />
+        <properties id="3d197f85-0e2e-4aaa-8c12-17bd57ffeafb" />
         <CLASSES>
-          <root url="file://$MODULE_DIR$/starling-builder-editor/libs" />
+          <root url="jar://$MODULE_DIR$/../sgn-starling-builder-editor/libs/as3commons-lang-0.3.7.swc!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
-        <jarDirectory url="file://$MODULE_DIR$/starling-builder-editor/libs" recursive="false" />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library type="flex">
+        <properties id="aa935906-d843-4516-8d92-45f3941ea0d9" />
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../sgn-starling-builder-editor/libs/as3commons-reflect-1.6.4.swc!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library type="flex">
+        <properties id="3cb097d9-23d1-4eeb-a6d7-2610821c276c" />
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../sgn-starling-builder-editor/libs/as3commons-lang-0.3.7.swc!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library type="flex">
+        <properties id="64344c1e-8819-465b-8d4e-b9adfe0500bc" />
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../sgn-starling-builder-editor/libs/as3commons-reflect-1.6.4.swc!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
       </library>
     </orderEntry>
   </component>

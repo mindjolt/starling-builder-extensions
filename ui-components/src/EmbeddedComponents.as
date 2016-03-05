@@ -12,6 +12,6 @@ package
         [Embed(source="custom_component_template.json", mimeType="application/octet-stream")]
         public static const custom_component_template:Class;
 
-        public static const linkers:Array = [PixelMaskDisplayObject];
+        public static const linkers:Array = [];
     }
 }

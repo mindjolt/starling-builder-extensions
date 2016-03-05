@@ -58,7 +58,7 @@ package {
             _stage.addEventListener(Event.RESIZE, onResize);
 
             new MetalWorksDesktopTheme2(this);
-            new TestGameMobileTheme(false, this);
+            new TestGameMobileTheme(this);
 
             _texture = Texture.fromBitmap(new TEXTURE);
             _icon = Texture.fromBitmap(new ICON);

@@ -9,6 +9,7 @@ package {
     import flash.display.Sprite;
     import flash.events.Event;
     import starling.core.Starling;
+    import starling.utils.Align;
     import starling.utils.HAlign;
     import starling.utils.VAlign;
 
@@ -35,13 +36,11 @@ package {
 
         private function init():void
         {
-            Starling.handleLostContext = true;
-
             _starling = new Starling(TestApp, stage);
 
             _starling.simulateMultitouch  = false;
             _starling.enableErrorChecking = false;
-            _starling.showStatsAt(HAlign.RIGHT, VAlign.TOP);
+            _starling.showStatsAt(Align.RIGHT, Align.TOP);
             _starling.supportHighResolutions = true;
 
             _starling.stage3D.addEventListener(Event.CONTEXT3D_CREATE, _start);
