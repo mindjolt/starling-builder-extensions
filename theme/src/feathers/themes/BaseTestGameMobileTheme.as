@@ -144,23 +144,23 @@ package feathers.themes
         protected static const VIDEO_OVERLAY_COLOR:uint = 0x1a1816;
         protected static const VIDEO_OVERLAY_ALPHA:Number = 0.2;
 
-        protected static const DEFAULT_BACKGROUND_SCALE9_GRID:Rectangle = new Rectangle(4, 4, 1, 1);
-        protected static const BUTTON_SCALE9_GRID:Rectangle = new Rectangle(4, 4, 1, 20);
-        protected static const SMALL_BACKGROUND_SCALE9_GRID:Rectangle = new Rectangle(2, 2, 1, 1);
-        protected static const BACK_BUTTON_SCALE9_GRID:Rectangle = new Rectangle(13, 0, 1, 28);
-        protected static const FORWARD_BUTTON_SCALE9_GRID:Rectangle = new Rectangle(3, 0, 1, 28);
-        protected static const ITEM_RENDERER_SCALE9_GRID:Rectangle = new Rectangle(1, 1, 1, 42);
-        protected static const INSET_ITEM_RENDERER_MIDDLE_SCALE9_GRID:Rectangle = new Rectangle(2, 2, 1, 40);
-        protected static const INSET_ITEM_RENDERER_FIRST_SCALE9_GRID:Rectangle = new Rectangle(7, 7, 1, 35);
-        protected static const INSET_ITEM_RENDERER_LAST_SCALE9_GRID:Rectangle = new Rectangle(7, 2, 1, 35);
-        protected static const INSET_ITEM_RENDERER_SINGLE_SCALE9_GRID:Rectangle = new Rectangle(7, 7, 1, 30);
-        protected static const TAB_SCALE9_GRID:Rectangle = new Rectangle(11, 11, 1, 22);
-        protected static const SPINNER_LIST_SELECTION_OVERLAY_SCALE9_GRID:Rectangle = new Rectangle(2, 6, 1, 32);
-        protected static const HORIZONTAL_SCROLL_BAR_THUMB_SCALE9_GRID:Rectangle = new Rectangle(4, 0, 4, 5);
-        protected static const VERTICAL_SCROLL_BAR_THUMB_SCALE9_GRID:Rectangle = new Rectangle(0, 4, 5, 4);
+        protected static const DEFAULT_BACKGROUND_SCALE9_GRID:Rectangle = new Rectangle(8, 8, 2, 2);
+        protected static const BUTTON_SCALE9_GRID:Rectangle = new Rectangle(8, 8, 2, 40);
+        protected static const SMALL_BACKGROUND_SCALE9_GRID:Rectangle = new Rectangle(4, 4, 2, 2);
+        protected static const BACK_BUTTON_SCALE9_GRID:Rectangle = new Rectangle(26, 0, 2, 56);
+        protected static const FORWARD_BUTTON_SCALE9_GRID:Rectangle = new Rectangle(6, 0, 2, 56);
+        protected static const ITEM_RENDERER_SCALE9_GRID:Rectangle = new Rectangle(2, 2, 2, 84);
+        protected static const INSET_ITEM_RENDERER_MIDDLE_SCALE9_GRID:Rectangle = new Rectangle(4, 4, 2, 80);
+        protected static const INSET_ITEM_RENDERER_FIRST_SCALE9_GRID:Rectangle = new Rectangle(14, 14, 2, 70);
+        protected static const INSET_ITEM_RENDERER_LAST_SCALE9_GRID:Rectangle = new Rectangle(14, 4, 2, 70);
+        protected static const INSET_ITEM_RENDERER_SINGLE_SCALE9_GRID:Rectangle = new Rectangle(14, 14, 2, 60);
+        protected static const TAB_SCALE9_GRID:Rectangle = new Rectangle(22, 22, 2, 44);
+        protected static const SPINNER_LIST_SELECTION_OVERLAY_SCALE9_GRID:Rectangle = new Rectangle(4, 12, 2, 64);
+        protected static const HORIZONTAL_SCROLL_BAR_THUMB_SCALE9_GRID:Rectangle = new Rectangle(8, 0, 8, 10);
+        protected static const VERTICAL_SCROLL_BAR_THUMB_SCALE9_GRID:Rectangle = new Rectangle(0, 8, 10, 8);
 
-        protected static const HEADER_SKIN_TEXTURE_REGION:Rectangle = new Rectangle(1, 1, 128, 64);
-        protected static const TAB_SKIN_TEXTURE_REGION:Rectangle = new Rectangle(1, 0, 22, 44);
+        protected static const HEADER_SKIN_TEXTURE_REGION:Rectangle = new Rectangle(2, 2, 256, 128);
+        protected static const TAB_SKIN_TEXTURE_REGION:Rectangle = new Rectangle(2, 0, 44, 88);
 
         /**
          * @private
@@ -723,17 +723,17 @@ package feathers.themes
          */
         protected function initializeDimensions():void
         {
-            this.gridSize = 44;
-            this.smallGutterSize = 8;
-            this.gutterSize = 12;
-            this.controlSize = 28;
-            this.smallControlSize = 12;
-            this.popUpFillSize = 276;
-            this.calloutBackgroundMinSize = 12;
-            this.calloutArrowOverlapGap = -2;
-            this.scrollBarGutterSize = 2;
+            this.gridSize = 88;
+            this.smallGutterSize = 16;
+            this.gutterSize = 24;
+            this.controlSize = 56;
+            this.smallControlSize = 24;
+            this.popUpFillSize = 552;
+            this.calloutBackgroundMinSize = 24;
+            this.calloutArrowOverlapGap = -4;
+            this.scrollBarGutterSize = 4;
             this.wideControlSize = this.gridSize * 3 + this.gutterSize * 2;
-            this.borderSize = 1;
+            this.borderSize = 2;
         }
 
         /**
@@ -741,11 +741,11 @@ package feathers.themes
          */
         protected function initializeFonts():void
         {
-            this.smallFontSize = 10;
-            this.regularFontSize = 12;
-            this.largeFontSize = 14;
-            this.extraLargeFontSize = 18;
-            this.inputFontSize = Math.round(12 * this.stageTextScale);
+            this.smallFontSize = 20;
+            this.regularFontSize = 24;
+            this.largeFontSize = 28;
+            this.extraLargeFontSize = 36;
+            this.inputFontSize = Math.round(24 * this.stageTextScale);
 
             //these are for components that don't use FTE
             this.scrollTextTextFormat = new TextFormat("_sans", this.regularFontSize, LIGHT_TEXT_COLOR);
