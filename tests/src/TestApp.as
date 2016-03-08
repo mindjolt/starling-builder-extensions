@@ -24,7 +24,7 @@ package {
     import starlingbuilder.editor.themes.IUIEditorThemeMediator;
     import starlingbuilder.editor.themes.MetalWorksDesktopTheme2;
     import starlingbuilder.engine.util.ParamUtil;
-    import starlingbuilder.extensions.uicomponents.IDisplayObjectFactory;
+    import starlingbuilder.extensions.uicomponents.ContainerButtonFactory;
     import starlingbuilder.extensions.uicomponents.ImageFactory;
     import starlingbuilder.util.feathers.FeathersUIUtil;
     import starlingbuilder.util.ui.inspector.PropertyPanel;
@@ -37,9 +37,19 @@ package {
         [Embed(source="generic_gift.png")]
         public static const ICON:Class;
 
+        public static var texture:Texture;
+        public static var icon:Texture;
+
+        /**
+         * Replace UI factory you would like to test here
+         */
+        public static const SINGLE_COMPONENT:Class = ImageFactory;
+
+        public static const ALL_COMPONENTS:Array = [ImageFactory, ContainerButtonFactory];
+
+        public static var TEST_ALL:Boolean = false;
+
         private var _stage:Stage;
-        private var _texture:Texture;
-        private var _icon:Texture;
         private var _object:DisplayObject;
         private var _container:Sprite;
         private var _propertyPanel:PropertyPanel;
@@ -60,26 +70,31 @@ package {
             new MetalWorksDesktopTheme2(this);
             new TestGameMobileTheme(false, this);
 
-            _texture = Texture.fromBitmap(new TEXTURE);
-            _icon = Texture.fromBitmap(new ICON);
+            texture = Texture.fromBitmap(new TEXTURE);
+            icon = Texture.fromBitmap(new ICON);
 
             _container = new Sprite();
             _container.x = 200;
             _container.y = 200;
             addChild(_container);
 
-            createDisplayObject();
             createPropertyPanel();
+
+            test();
         }
 
-        /**
-         * Create ui component you would like to test here
-         */
-        private function createDisplayObject():void
+
+        private function testSingle():void
         {
-            var factory:IDisplayObjectFactory = new ImageFactory(_texture);
-            _object = factory.create();
+            createDisplayObject(SINGLE_COMPONENT);
+        }
+
+        private function createDisplayObject(cls:Class):void
+        {
+            _container.removeChildren(0, -1, true);
+            _object = new cls().create();
             _container.addChild(_object);
+            _propertyPanel.reloadData(_object, ParamUtil.getParams(TemplateData.editor_template, _object));
         }
 
         private function createPropertyPanel():void
@@ -87,7 +102,7 @@ package {
             TemplateData.load(new EmbeddedComponents.custom_component_template());
 
             _propertyPanel = new PropertyPanel();
-            _propertyPanel.reloadData(_object, ParamUtil.getParams(TemplateData.editor_template, _object));
+
             _propertyPanel.layoutData = FeathersUIUtil.anchorLayoutData(50, NaN, NaN, 50);
             addChild(_propertyPanel);
         }
@@ -101,6 +116,26 @@ package {
         public function useGameTheme(target:IFeathersControl):Boolean
         {
             return _container.contains(target as DisplayObject);
+        }
+
+        private function test():void
+        {
+            if (TEST_ALL)
+                testAll();
+            else
+                testSingle();
+        }
+
+        private function testAll(id:int = 0):void
+        {
+            createDisplayObject(ALL_COMPONENTS[id]);
+
+            if (++id < ALL_COMPONENTS.length)
+            {
+                Starling.current.juggler.delayCall(function():void{
+                    testAll(id);
+                }, 0.5);
+            }
         }
     }
 }

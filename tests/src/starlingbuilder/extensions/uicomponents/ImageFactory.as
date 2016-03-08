@@ -9,16 +9,9 @@ package starlingbuilder.extensions.uicomponents
 
     public class ImageFactory implements IDisplayObjectFactory
     {
-        private var _texture:Texture;
-
-        public function ImageFactory(texture:Texture)
-        {
-            _texture = texture;
-        }
-
         public function create():DisplayObject
         {
-            return new Image(_texture);
+            return new Image(TestApp.texture);
         }
     }
 }

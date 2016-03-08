@@ -44,6 +44,20 @@
         <packaging-android />
         <packaging-ios />
       </configuration>
+      <configuration name="test_all" target-platform="Desktop" pure-as="true" main-class="TestAll" output-file="test_all.swf" output-folder="$MODULE_DIR$/out/production">
+        <dependencies>
+          <entries>
+            <entry library-id="c2906ac6-f397-454b-a5c2-9bca65576d13">
+              <dependency linkage="Merged" />
+            </entry>
+          </entries>
+          <sdk name="AIRSDK" />
+        </dependencies>
+        <compiler-options />
+        <packaging-air-desktop use-generated-descriptor="false" custom-descriptor-path="$MODULE_DIR$/tests/src/Main-app.xml" package-file-name="test_all" />
+        <packaging-android />
+        <packaging-ios />
+      </configuration>
     </configurations>
     <compiler-options />
   </component>
@@ -84,6 +98,17 @@
     <orderEntry type="module-library" exported="">
       <library type="flex">
         <properties id="b2425b56-44f7-4f57-8ad1-2071de638498" />
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/starling-builder-editor/libs" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+        <jarDirectory url="file://$MODULE_DIR$/starling-builder-editor/libs" recursive="false" />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library type="flex">
+        <properties id="c2906ac6-f397-454b-a5c2-9bca65576d13" />
         <CLASSES>
           <root url="file://$MODULE_DIR$/starling-builder-editor/libs" />
         </CLASSES>
