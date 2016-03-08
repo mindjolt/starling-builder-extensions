@@ -61,6 +61,11 @@ package starlingbuilder.extensions.uicomponents
             mIsDown = false;
             mUseHandCursor = true;
 
+            mOriginalScaleX = 0;
+            mOriginalScaleY = 0;
+            mOriginalScaleX = 1;
+            mOriginalScaleY = 1;
+
             addEventListener(TouchEvent.TOUCH, onTouch);
 
             this.touchGroup = false;
@@ -148,7 +153,6 @@ package starlingbuilder.extensions.uicomponents
             {
                 mEnabled = value;
                 alpha = value ? 1.0 : mAlphaWhenDisabled;
-                resetContents();
             }
         }
 
