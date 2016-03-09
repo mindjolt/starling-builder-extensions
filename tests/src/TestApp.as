@@ -25,6 +25,7 @@ package {
     import starlingbuilder.editor.themes.MetalWorksDesktopTheme2;
     import starlingbuilder.engine.util.ParamUtil;
     import starlingbuilder.extensions.uicomponents.ContainerButtonFactory;
+    import starlingbuilder.extensions.uicomponents.GradientQuadFactory;
     import starlingbuilder.extensions.uicomponents.ImageFactory;
     import starlingbuilder.util.feathers.FeathersUIUtil;
     import starlingbuilder.util.ui.inspector.PropertyPanel;
@@ -45,7 +46,7 @@ package {
          */
         public static const SINGLE_COMPONENT:Class = ImageFactory;
 
-        public static const ALL_COMPONENTS:Array = [ImageFactory, ContainerButtonFactory];
+        public static const ALL_COMPONENTS:Array = [ImageFactory, ContainerButtonFactory, GradientQuadFactory];
 
         public static var TEST_ALL:Boolean = false;
 
