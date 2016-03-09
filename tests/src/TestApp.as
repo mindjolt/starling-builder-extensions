@@ -11,7 +11,7 @@ package {
     import feathers.core.IFeathersControl;
     import feathers.layout.AnchorLayout;
     import feathers.themes.TestGameMobileTheme;
-
+    
     import starling.core.Starling;
     import starling.display.DisplayObject;
     import starling.display.Sprite;
@@ -19,12 +19,13 @@ package {
     import starling.events.Event;
     import starling.events.ResizeEvent;
     import starling.textures.Texture;
-
+    
     import starlingbuilder.editor.data.TemplateData;
     import starlingbuilder.editor.themes.IUIEditorThemeMediator;
     import starlingbuilder.editor.themes.MetalWorksDesktopTheme2;
     import starlingbuilder.engine.util.ParamUtil;
     import starlingbuilder.extensions.uicomponents.ContainerButtonFactory;
+    import starlingbuilder.extensions.uicomponents.GradientQuadFactory;
     import starlingbuilder.extensions.uicomponents.ImageFactory;
     import starlingbuilder.util.feathers.FeathersUIUtil;
     import starlingbuilder.util.ui.inspector.PropertyPanel;
@@ -45,7 +46,7 @@ package {
          */
         public static const SINGLE_COMPONENT:Class = ImageFactory;
 
-        public static const ALL_COMPONENTS:Array = [ImageFactory, ContainerButtonFactory];
+        public static const ALL_COMPONENTS:Array = [ImageFactory, ContainerButtonFactory, GradientQuadFactory];
 
         public static var TEST_ALL:Boolean = false;
 

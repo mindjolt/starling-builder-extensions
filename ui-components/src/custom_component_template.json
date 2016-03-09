@@ -22,6 +22,27 @@
             ],
             "container":true,
             "tag":"container"
-        }
+        },
+		
+		{
+			"cls":"starlingbuilder.extensions.uicomponents.GradientQuad",
+			 "params":[
+                {"name":"width", "min":0, "read_only":true, "link":true},
+                {"name":"height", "min":0, "read_only":true, "link":true},
+                {"name":"scaleX", "step":0.01, "default_value":1},
+                {"name":"scaleY", "step":0.01, "default_value":1},
+				{"name":"topLeftColor", "component":"colorPicker", "default_value":16777215},
+				{"name":"topRightColor", "component":"colorPicker", "default_value":16777215},
+				{"name":"bottomLeftColor", "component":"colorPicker", "default_value":16777215},
+				{"name":"bottomRightColor", "component":"colorPicker", "default_value":16777215}
+            ],
+            "constructorParams":
+            [
+                {"type":"Number", "value":50},
+                {"type":"Number", "value":50}
+            ],
+            "createButton":true,
+            "tag":"asset"
+		}
     ]
 }
