@@ -33,6 +33,7 @@ package {
     import starlingbuilder.editor.ui.AssetTab;
     import starlingbuilder.editor.ui.DefaultEditPropertyPopup;
     import starlingbuilder.editor.ui.DisplayObjectPropertyPopup;
+    import starlingbuilder.editor.ui.ImageGridPopup;
     import starlingbuilder.editor.ui.ScaleTextureConstructorPopup1;
     import starlingbuilder.editor.ui.TextureConstructorPopup;
     import starlingbuilder.editor.ui.TexturePropertyPopup;
@@ -56,7 +57,7 @@ package {
         public static var texture:Texture;
         public static var icon:Texture;
 
-        private static const LINKERS:Array = [DefaultEditPropertyPopup, DisplayObjectPropertyPopup, TexturePropertyPopup, TextureConstructorPopup, ScaleTextureConstructorPopup1];
+        private static const LINKERS:Array = [DefaultEditPropertyPopup, DisplayObjectPropertyPopup, TexturePropertyPopup, TextureConstructorPopup, ImageGridPopup];
 
         /**
          * Replace UI factory you would like to test here
