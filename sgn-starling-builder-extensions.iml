@@ -56,7 +56,10 @@
       <configuration name="test_all" target-platform="Desktop" pure-as="true" main-class="TestAll" output-file="test_all.swf" output-folder="$MODULE_DIR$/out/production">
         <dependencies>
           <entries>
-            <entry library-id="c2906ac6-f397-454b-a5c2-9bca65576d13">
+            <entry library-id="b0a93788-1cd9-40cf-9ac1-e9a8d440a3b5">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-id="be4790bb-bb55-4433-81d0-3c5115edb83d">
               <dependency linkage="Merged" />
             </entry>
           </entries>
@@ -150,13 +153,22 @@
     </orderEntry>
     <orderEntry type="module-library" exported="">
       <library type="flex">
-        <properties id="c2906ac6-f397-454b-a5c2-9bca65576d13" />
+        <properties id="b0a93788-1cd9-40cf-9ac1-e9a8d440a3b5" />
         <CLASSES>
-          <root url="file://$MODULE_DIR$/starling-builder-editor/libs" />
+          <root url="jar://$MODULE_DIR$/../sgn-starling-builder-editor/libs/as3commons-lang-0.3.7.swc!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
-        <jarDirectory url="file://$MODULE_DIR$/starling-builder-editor/libs" recursive="false" />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library type="flex">
+        <properties id="be4790bb-bb55-4433-81d0-3c5115edb83d" />
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../sgn-starling-builder-editor/libs/as3commons-reflect-1.6.4.swc!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
       </library>
     </orderEntry>
   </component>
