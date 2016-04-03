@@ -14,17 +14,6 @@
         },
 
         {
-            "cls":"starling.extensions.pixelmask.PixelMaskDisplayObject",
-            "params":[
-                {"name":"mask", "component":"popup", "cls":true, "disable":true, "default_value":null, "editPropertyClass":"starlingbuilder.editor.ui.DisplayObjectPropertyPopup"},
-                {"name":"isAnimated", "component":"check", "default_value":true},
-                {"name":"inverted", "component":"check", "default_value":false}
-            ],
-            "container":true,
-            "tag":"container"
-        },
-
-        {
             "cls":"starlingbuilder.extensions.uicomponents.GradientQuad",
             "params":[
                 {"name":"width", "min":0, "read_only":true, "link":true},
