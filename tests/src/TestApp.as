@@ -20,6 +20,7 @@ package {
     import starling.display.Stage;
     import starling.events.Event;
     import starling.events.ResizeEvent;
+    import starling.extensions.GaugeFactory;
     import starling.textures.Texture;
     import starling.utils.AssetManager;
 
@@ -65,7 +66,7 @@ package {
          */
         public static const SINGLE_COMPONENT:Class = ImageFactory;
 
-        public static const ALL_COMPONENTS:Array = [ImageFactory, GradientQuadFactory, ContainerButtonFactory];
+        public static const ALL_COMPONENTS:Array = [ImageFactory, GradientQuadFactory, ContainerButtonFactory, GaugeFactory];
 
         public static var TEST_ALL:Boolean = false;
 

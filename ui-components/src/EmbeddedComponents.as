@@ -5,6 +5,8 @@ package
 {
     import flash.display.Sprite;
 
+    import starling.extensions.Gauge;
+
     import starling.extensions.pixelmask.PixelMaskDisplayObject;
 
     import starlingbuilder.extensions.uicomponents.ContainerButton;
@@ -15,6 +17,6 @@ package
         [Embed(source="custom_component_template.json", mimeType="application/octet-stream")]
         public static const custom_component_template:Class;
 
-        public static const linkers:Array = [ContainerButton, GradientQuad];
+        public static const linkers:Array = [ContainerButton, GradientQuad, Gauge];
     }
 }
