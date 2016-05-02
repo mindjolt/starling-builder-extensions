@@ -9,6 +9,8 @@ package
 
     import starling.extensions.pixelmask.PixelMaskDisplayObject;
 
+    import starlingbuilder.extensions.particle.FFParticleSprite;
+
     import starlingbuilder.extensions.uicomponents.ContainerButton;
     import starlingbuilder.extensions.uicomponents.GradientQuad;
 
@@ -17,6 +19,6 @@ package
         [Embed(source="custom_component_template.json", mimeType="application/octet-stream")]
         public static const custom_component_template:Class;
 
-        public static const linkers:Array = [PixelMaskDisplayObject, ContainerButton, GradientQuad, Gauge];
+        public static const linkers:Array = [PixelMaskDisplayObject, ContainerButton, GradientQuad, Gauge, FFParticleSprite];
     }
 }

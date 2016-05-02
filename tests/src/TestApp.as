@@ -44,6 +44,7 @@ package {
     import starlingbuilder.engine.IUIBuilder;
     import starlingbuilder.engine.UIBuilder;
     import starlingbuilder.engine.util.ParamUtil;
+    import starlingbuilder.extensions.particle.FFParticleSpriteFactory;
     import starlingbuilder.extensions.uicomponents.ContainerButtonFactory;
     import starlingbuilder.extensions.uicomponents.GradientQuadFactory;
     import starlingbuilder.extensions.uicomponents.ImageFactory;
@@ -68,7 +69,7 @@ package {
          */
         public static const SINGLE_COMPONENT:Class = ImageFactory;
 
-        public static const ALL_COMPONENTS:Array = [ImageFactory, ContainerButtonFactory, GradientQuadFactory, GaugeFactory, PixelMaskDisplayObjectFactory];
+        public static const ALL_COMPONENTS:Array = [ImageFactory, ContainerButtonFactory, GradientQuadFactory, GaugeFactory, PixelMaskDisplayObjectFactory, FFParticleSpriteFactory];
 
         public static var TEST_ALL:Boolean = false;
 
