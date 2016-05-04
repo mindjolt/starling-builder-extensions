@@ -1,5 +1,5 @@
 /**
- * Created by hyh on 6/8/15.
+ * Created by hyh on 4/24/16.
  */
 package starlingbuilder.extensions.uicomponents
 {
@@ -7,160 +7,254 @@ package starlingbuilder.extensions.uicomponents
     import flash.ui.Mouse;
     import flash.ui.MouseCursor;
 
+    import starling.display.ButtonState;
     import starling.display.DisplayObject;
+
     import starling.display.DisplayObjectContainer;
-    import starling.display.Image;
     import starling.display.Sprite;
+
     import starling.events.Event;
     import starling.events.Touch;
     import starling.events.TouchEvent;
     import starling.events.TouchPhase;
-    import starling.text.TextField;
-    import starling.textures.Texture;
-    import starling.utils.HAlign;
-    import starling.utils.VAlign;
+
+    import starlingbuilder.engine.util.DisplayObjectUtil;
 
     /** Dispatched when the user triggers the button. Bubbles. */
     [Event(name="triggered", type="starling.events.Event")]
 
-    /** A simple button composed of an image and, optionally, text.
-     *
-     *  <p>You can pass a texture for up- and downstate of the button. If you do not provide a down
-     *  state, the button is simply scaled a little when it is touched.
-     *  In addition, you can overlay a text on the button. To customize the text, almost the
-     *  same options as those of text fields are provided. In addition, you can move the text to a
-     *  certain position with the help of the <code>textBounds</code> property.</p>
-     *
-     *  <p>To react on touches on a button, there is special <code>triggered</code>-event type. Use
-     *  this event instead of normal touch events - that way, users can cancel button activation
-     *  by moving the mouse/finger away from the button before releasing.</p>
+    /**
+     * A button as a container, you can layout whatever you want inside ContainerButton
      */
     public class ContainerButton extends DisplayObjectContainer
     {
-        protected static const MAX_DRAG_DIST:Number = 50;
+        private static const MAX_DRAG_DIST:Number = 50;
 
-        private static var sRect:Rectangle = new flash.geom.Rectangle();
+        private static var sRect:Rectangle = new Rectangle();
 
-        protected var mScaleWhenDown:Number;
+        private var mContents:Sprite;
+
+        private var mScaleWhenDown:Number;
+        private var mScaleWhenOver:Number;
+        private var mAlphaWhenDown:Number;
         private var mAlphaWhenDisabled:Number;
-        protected var mEnabled:Boolean;
-        protected var mIsDown:Boolean;
-        protected var mUseHandCursor:Boolean;
+        private var mUseHandCursor:Boolean;
+        private var mEnabled:Boolean;
+        private var mState:String;
+        private var mTriggerBounds:Rectangle;
 
-        protected var mOriginalX:Number;
-        protected var mOriginalY:Number;
-        protected var mOriginalScaleX:Number;
-        protected var mOriginalScaleY:Number;
-
-        /** Creates a button with textures for up- and down-state or text. */
+        /** Creates a button with a set of state-textures and (optionally) some text.
+         *  Any state that is left 'null' will display the up-state texture. Beware that all
+         *  state textures should have the same dimensions. */
         public function ContainerButton()
         {
+            mState = ButtonState.UP;
             mScaleWhenDown = 0.9;
+            mScaleWhenOver = mAlphaWhenDown = 1.0;
             mAlphaWhenDisabled = 0.5;
             mEnabled = true;
-            mIsDown = false;
             mUseHandCursor = true;
+            mTriggerBounds = new Rectangle();
 
-            mOriginalScaleX = 0;
-            mOriginalScaleY = 0;
-            mOriginalScaleX = 1;
-            mOriginalScaleY = 1;
-
+            mContents = new Sprite();
+            super.addChildAt(mContents, 0);
             addEventListener(TouchEvent.TOUCH, onTouch);
-
-            this.touchGroup = false;
         }
 
-        protected function resetContents():void
+        /** @inheritDoc */
+        public override function dispose():void
         {
-            mIsDown = false;
-
-            if (scaleWhenDown != 1)
-            {
-                x = mOriginalX;
-                y = mOriginalY;
-
-                scaleX = mOriginalScaleX;
-                scaleY = mOriginalScaleY;
-            }
+            mContents.dispose();
+            super.dispose();
         }
 
-        protected function onTouch(event:TouchEvent):void
+        private function onTouch(event:TouchEvent):void
         {
             Mouse.cursor = (mUseHandCursor && mEnabled && event.interactsWith(this)) ?
                     MouseCursor.BUTTON : MouseCursor.AUTO;
 
             var touch:Touch = event.getTouch(this);
-            if (!mEnabled || touch == null) return;
+            var isWithinBounds:Boolean;
 
-            if (touch.phase == TouchPhase.BEGAN && !mIsDown)
+            if (!mEnabled)
             {
-                mOriginalScaleX = scaleX;
-                mOriginalScaleY = scaleY;
-
-                scaleX *= mScaleWhenDown;
-                scaleY *= mScaleWhenDown;
-
-                mOriginalX = x;
-                mOriginalY = y;
-
-                getBounds(parent, sRect);
-                var midX:Number = sRect.x + sRect.width * 0.5;
-                var midY:Number = sRect.y + sRect.height * 0.5;
-                x += (1.0 - mScaleWhenDown) * (midX - x);
-                y += (1.0 - mScaleWhenDown) * (midY - y);
-                mIsDown = true;
+                return;
             }
-            else if (touch.phase == TouchPhase.MOVED && mIsDown)
+            else if (touch == null)
             {
-                // reset button when user dragged too far away after pushing
-                var buttonRect:Rectangle = getBounds(stage);
-                if (touch.globalX < buttonRect.x - MAX_DRAG_DIST ||
-                        touch.globalY < buttonRect.y - MAX_DRAG_DIST ||
-                        touch.globalX > buttonRect.x + buttonRect.width + MAX_DRAG_DIST ||
-                        touch.globalY > buttonRect.y + buttonRect.height + MAX_DRAG_DIST)
+                state = ButtonState.UP;
+            }
+            else if (touch.phase == TouchPhase.HOVER)
+            {
+                state = ButtonState.OVER;
+            }
+            else if (touch.phase == TouchPhase.BEGAN && mState != ButtonState.DOWN)
+            {
+                mTriggerBounds = getBounds(stage, mTriggerBounds);
+                mTriggerBounds.inflate(MAX_DRAG_DIST, MAX_DRAG_DIST);
+
+                state = ButtonState.DOWN;
+            }
+            else if (touch.phase == TouchPhase.MOVED)
+            {
+                isWithinBounds = mTriggerBounds.contains(touch.globalX, touch.globalY);
+
+                if (mState == ButtonState.DOWN && !isWithinBounds)
                 {
-                    resetContents();
+                    // reset button when finger is moved too far away ...
+                    state = ButtonState.UP;
+                }
+                else if (mState == ButtonState.UP && isWithinBounds)
+                {
+                    // ... and reactivate when the finger moves back into the bounds.
+                    state = ButtonState.DOWN;
                 }
             }
-            else if (touch.phase == TouchPhase.ENDED && mIsDown)
+            else if (touch.phase == TouchPhase.ENDED && mState == ButtonState.DOWN)
             {
-                resetContents();
-                dispatchEventWith(Event.TRIGGERED, true);
+                state = ButtonState.UP;
+                if (!touch.cancelled) dispatchEventWith(Event.TRIGGERED, true);
             }
         }
 
-        /** The scale factor of the button on touch. Per default, a button with a down state
-         * texture won't scale. */
-        public function get scaleWhenDown():Number
-        { return mScaleWhenDown; }
+        /** The current state of the button. The corresponding strings are found
+         *  in the ButtonState class. */
+        public function get state():String { return mState; }
+        public function set state(value:String):void
+        {
+            mState = value;
+            refreshState();
+        }
 
-        public function set scaleWhenDown(value:Number):void { mScaleWhenDown = value; }
+        private function refreshState():void
+        {
+            mContents.x = mContents.y = 0;
+            mContents.scaleX = mContents.scaleY = mContents.alpha = 1.0;
+            mContents.getBounds(this, sRect);
+
+            switch (mState)
+            {
+                case ButtonState.DOWN:
+                    mContents.alpha = mAlphaWhenDown;
+                    mContents.scaleX = mContents.scaleY = mScaleWhenDown;
+                    mContents.x = (1 - mScaleWhenDown) * (sRect.x + sRect.width * 0.5);
+                    mContents.y = (1 - mScaleWhenDown) * (sRect.y + sRect.height * 0.5);
+                    break;
+                case ButtonState.UP:
+                    break;
+                case ButtonState.OVER:
+                    mContents.scaleX = mContents.scaleY = mScaleWhenOver;
+                    mContents.x = (1 - mScaleWhenOver) * (sRect.x + sRect.width * 0.5);
+                    mContents.y = (1 - mScaleWhenOver) * (sRect.y + sRect.height * 0.5);
+                    break;
+                case ButtonState.DISABLED:
+                    mContents.alpha = mAlphaWhenDisabled;
+                    break;
+                default:
+                    throw new ArgumentError("Invalid button state: " + mState);
+            }
+        }
+
+
+
+        /** The scale factor of the button on touch. Per default, a button without a down state
+         *  texture will be made slightly smaller, while a button with a down state texture
+         *  remains unscaled. */
+        public function get scaleWhenDown():Number { return mScaleWhenDown; }
+        public function set scaleWhenDown(value:Number):void
+        {
+            mScaleWhenDown = value;
+            if (mState == ButtonState.DOWN) refreshState();
+        }
+
+        /** The scale factor of the button while the mouse cursor hovers over it. @default 1.0 */
+        public function get scaleWhenOver():Number { return mScaleWhenOver; }
+        public function set scaleWhenOver(value:Number):void
+        {
+            mScaleWhenOver = value;
+            if (mState == ButtonState.OVER) refreshState();
+        }
+
+        /** The alpha value of the button on touch. @default 1.0 */
+        public function get alphaWhenDown():Number { return mAlphaWhenDown; }
+        public function set alphaWhenDown(value:Number):void
+        {
+            mAlphaWhenDown = value;
+            if (mState == ButtonState.DOWN) refreshState();
+        }
 
         /** The alpha value of the button when it is disabled. @default 0.5 */
-        public function get alphaWhenDisabled():Number
-        { return mAlphaWhenDisabled; }
-
-        public function set alphaWhenDisabled(value:Number):void { mAlphaWhenDisabled = value; }
+        public function get alphaWhenDisabled():Number { return mAlphaWhenDisabled; }
+        public function set alphaWhenDisabled(value:Number):void
+        {
+            mAlphaWhenDisabled = value;
+            if (mState == ButtonState.DISABLED) refreshState();
+        }
 
         /** Indicates if the button can be triggered. */
-        public function get enabled():Boolean
-        { return mEnabled; }
-
+        public function get enabled():Boolean { return mEnabled; }
         public function set enabled(value:Boolean):void
         {
             if (mEnabled != value)
             {
                 mEnabled = value;
-                alpha = value ? 1.0 : mAlphaWhenDisabled;
+                state = value ? ButtonState.UP : ButtonState.DISABLED;
             }
         }
 
         /** Indicates if the mouse cursor should transform into a hand while it's over the button.
          *  @default true */
-        public override function get useHandCursor():Boolean
-        { return mUseHandCursor; }
-
+        public override function get useHandCursor():Boolean { return mUseHandCursor; }
         public override function set useHandCursor(value:Boolean):void { mUseHandCursor = value; }
+
+        override public function get numChildren():int
+        {
+            return mContents.numChildren;
+        }
+
+        override public function getChildByName(name:String):DisplayObject
+        {
+            return mContents.getChildByName(name);
+        }
+
+        override public function getChildAt(index:int):DisplayObject
+        {
+            return mContents.getChildAt(index);
+        }
+
+        override public function addChild(child:DisplayObject):DisplayObject
+        {
+            return mContents.addChild(child);
+        }
+
+        override public function addChildAt(child:DisplayObject, index:int):DisplayObject
+        {
+            return mContents.addChildAt(child, index);
+        }
+
+        override public function removeChildAt(index:int, dispose:Boolean = false):DisplayObject
+        {
+            return mContents.removeChildAt(index, dispose);
+        }
+
+        override public function getChildIndex(child:DisplayObject):int
+        {
+            return mContents.getChildIndex(child);
+        }
+
+        override public function setChildIndex(child:DisplayObject, index:int):void
+        {
+            mContents.setChildIndex(child, index);
+        }
+
+        override public function swapChildrenAt(index1:int,index2:int):void
+        {
+            mContents.swapChildrenAt(index1, index2);
+        }
+
+        override public function sortChildren(compareFunction:Function):void
+        {
+            mContents.sortChildren(compareFunction);
+        }
     }
 }

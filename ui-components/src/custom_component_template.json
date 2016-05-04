@@ -7,7 +7,9 @@
                 {"name":"width", "min":0, "read_only":true, "link":true},
                 {"name":"height", "min":0, "read_only":true, "link":true},
                 {"name":"scaleX", "step":0.01, "default_value":1},
-                {"name":"scaleY", "step":0.01, "default_value":1}
+                {"name":"scaleY", "step":0.01, "default_value":1},
+                {"name":"scaleWhenDown", "step":0.01, "default_value":0.9},
+                {"name":"scaleWhenOver", "step":0.01, "default_value":1}
             ],
             "container":true,
             "tag":"container"
