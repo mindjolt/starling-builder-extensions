@@ -14,7 +14,7 @@ package starling.extensions
         public function create():DisplayObject
         {
             var pixelMask:PixelMaskDisplayObject = new PixelMaskDisplayObject();
-            pixelMask.mask = new Image(TestApp.icon);
+            pixelMask.pixelMask = new Image(TestApp.icon);
             pixelMask.addChild(new Image(TestApp.texture));
             return pixelMask;
         }

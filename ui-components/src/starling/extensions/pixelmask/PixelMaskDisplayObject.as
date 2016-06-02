@@ -17,7 +17,7 @@ package starling.extensions.pixelmask
 		private static const MASK_MODE_NORMAL:String = "mask";
 		private static const MASK_MODE_INVERTED:String = "maskinverted";
 		
-		private var _mask:DisplayObject;
+		private var _pixelMask:DisplayObject;
 		private var _renderTexture:RenderTexture;
 		private var _maskRenderTexture:RenderTexture;
 		
@@ -79,19 +79,19 @@ package starling.extensions.pixelmask
 			refreshRenderTextures(null);
 		}
 
-		override public function set mask(mask:DisplayObject) : void
+		public function set pixelMask(mask:DisplayObject) : void
 		{
 			
 			// clean up existing mask if there is one
-			if (_mask) {
-				_mask = null;
+			if (_pixelMask) {
+				_pixelMask = null;
 			}
 			
 			if (mask) {
-				_mask = mask;				
+				_pixelMask = mask;
 				
-				if (_mask.width==0 || _mask.height==0) {
-					throw new Error ("Mask must have dimensions. Current dimensions are " + _mask.width + "x" + _mask.height + ".");
+				if (_pixelMask.width==0 || _pixelMask.height==0) {
+					throw new Error ("Mask must have dimensions. Current dimensions are " + _pixelMask.width + "x" + _pixelMask.height + ".");
 				}
 				
 				refreshRenderTextures(null);
@@ -100,9 +100,9 @@ package starling.extensions.pixelmask
 			}
 		}
 
-        override public function get mask():DisplayObject
+        public function get pixelMask():DisplayObject
         {
-            return _mask;
+            return _pixelMask;
         }
 		
 		private function clearRenderTextures() : void
@@ -127,12 +127,12 @@ package starling.extensions.pixelmask
 		
 		private function refreshRenderTextures(e:Event=null) : void
 		{
-			if (_mask) {
+			if (_pixelMask) {
 				
 				clearRenderTextures();
 				
-				_maskRenderTexture = new RenderTexture(_mask.width, _mask.height, false, _scaleFactor);
-				_renderTexture = new RenderTexture(_mask.width, _mask.height, false, _scaleFactor);
+				_maskRenderTexture = new RenderTexture(_pixelMask.width, _pixelMask.height, false, _scaleFactor);
+				_renderTexture = new RenderTexture(_pixelMask.width, _pixelMask.height, false, _scaleFactor);
 				
 				// create image with the new render texture
 				_image = new Image(_renderTexture);
@@ -153,11 +153,11 @@ package starling.extensions.pixelmask
 		public override function render(support:RenderSupport, parentAlpha:Number):void
 		{
 			if (_isAnimated || (!_isAnimated && !_maskRendered)) {
-				if (_superRenderFlag || !_mask) {
+				if (_superRenderFlag || !_pixelMask) {
 					super.render(support, parentAlpha);
 				} else {			
-					if (_mask) {					 
-						_maskRenderTexture.draw(_mask);
+					if (_pixelMask) {
+						_maskRenderTexture.draw(_pixelMask);
 						_renderTexture.drawBundled(drawRenderTextures);				
 						_image.render(support, parentAlpha);
 						_maskRendered = true;
