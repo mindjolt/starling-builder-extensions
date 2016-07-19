@@ -5,11 +5,11 @@ package starling.extensions
 {
     import starling.display.DisplayObject;
 
-    import starlingbuilder.extensions.uicomponents.IDisplayObjectFactory;
+    import starlingbuilder.extensions.uicomponents.AbstractDisplayObjectFactory;
 
-    public class GaugeFactory implements IDisplayObjectFactory
+    public class GaugeFactory extends AbstractDisplayObjectFactory
     {
-        public function create():DisplayObject
+        override public function create():DisplayObject
         {
             return new Gauge(TestApp.texture);
         }

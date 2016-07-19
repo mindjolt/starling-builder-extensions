@@ -8,9 +8,9 @@ package starlingbuilder.extensions.uicomponents
     import starling.display.Image;
     import starling.events.Event;
 
-    public class ContainerButtonFactory implements IDisplayObjectFactory
+    public class ContainerButtonFactory extends AbstractDisplayObjectFactory
     {
-        public function create():DisplayObject
+        override public function create():DisplayObject
         {
             var button:ContainerButton = new ContainerButton();
             button.addEventListener(Event.TRIGGERED, onClick);

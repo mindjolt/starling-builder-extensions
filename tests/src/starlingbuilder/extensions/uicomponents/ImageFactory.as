@@ -5,13 +5,24 @@ package starlingbuilder.extensions.uicomponents
 {
     import starling.display.DisplayObject;
     import starling.display.Image;
-    import starling.textures.Texture;
 
-    public class ImageFactory implements IDisplayObjectFactory
+    import starlingbuilder.engine.util.ParamUtil;
+
+    public class ImageFactory extends AbstractDisplayObjectFactory
     {
-        public function create():DisplayObject
+        override public function create():DisplayObject
         {
             return new Image(TestApp.texture);
+        }
+
+        override public function get customParams():Object
+        {
+            return {
+                cls:"",
+                constructorParams:[{cls:ParamUtil.getClassName(Image), textureName:"texture"}],
+                params:{},
+                customParams:{}
+            };
         }
     }
 }
