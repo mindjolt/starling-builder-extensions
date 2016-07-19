@@ -8,5 +8,7 @@ package starlingbuilder.extensions.uicomponents
     public interface IDisplayObjectFactory
     {
         function create():DisplayObject;
+
+        function get customParams():Object;
     }
 }

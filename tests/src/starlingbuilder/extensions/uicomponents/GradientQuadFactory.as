@@ -7,9 +7,9 @@ package starlingbuilder.extensions.uicomponents
 	 *author WG
 	 *2016-3-9
 	 */
-	public class GradientQuadFactory implements IDisplayObjectFactory
+	public class GradientQuadFactory extends AbstractDisplayObjectFactory
 	{
-		public function create():DisplayObject
+		override public function create():DisplayObject
 		{
 			var quad:GradientQuad = new GradientQuad(150, 150);
             quad.topLeftColor = Color.WHITE;

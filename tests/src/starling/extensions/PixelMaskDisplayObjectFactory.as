@@ -7,11 +7,11 @@ package starling.extensions
     import starling.display.Image;
     import starling.extensions.pixelmask.PixelMaskDisplayObject;
 
-    import starlingbuilder.extensions.uicomponents.IDisplayObjectFactory;
+    import starlingbuilder.extensions.uicomponents.AbstractDisplayObjectFactory;
 
-    public class PixelMaskDisplayObjectFactory implements IDisplayObjectFactory
+    public class PixelMaskDisplayObjectFactory extends AbstractDisplayObjectFactory
     {
-        public function create():DisplayObject
+        override public function create():DisplayObject
         {
             var pixelMask:PixelMaskDisplayObject = new PixelMaskDisplayObject();
             pixelMask.pixelMask = new Image(TestApp.icon);

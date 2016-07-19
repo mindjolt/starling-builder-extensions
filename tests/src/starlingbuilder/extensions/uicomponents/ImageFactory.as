@@ -5,11 +5,10 @@ package starlingbuilder.extensions.uicomponents
 {
     import starling.display.DisplayObject;
     import starling.display.Image;
-    import starling.textures.Texture;
 
-    public class ImageFactory implements IDisplayObjectFactory
+    public class ImageFactory extends AbstractDisplayObjectFactory
     {
-        public function create():DisplayObject
+        override public function create():DisplayObject
         {
             return new Image(TestApp.texture);
         }

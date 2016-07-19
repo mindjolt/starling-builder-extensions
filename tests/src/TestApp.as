@@ -47,6 +47,7 @@ package {
     import starlingbuilder.extensions.particle.FFParticleSpriteFactory;
     import starlingbuilder.extensions.uicomponents.ContainerButtonFactory;
     import starlingbuilder.extensions.uicomponents.GradientQuadFactory;
+    import starlingbuilder.extensions.uicomponents.IDisplayObjectFactory;
     import starlingbuilder.extensions.uicomponents.ImageFactory;
     import starlingbuilder.util.feathers.FeathersUIUtil;
     import starlingbuilder.util.ui.inspector.PropertyPanel;
@@ -119,9 +120,15 @@ package {
         private function createDisplayObject(cls:Class):void
         {
             _container.removeChildren(0, -1, true);
-            _object = new cls().create();
+
+            var factory:IDisplayObjectFactory = new cls();
+
+            _object = factory.create();
+            var customParam:Object = factory.customParams;
+            ComponentRenderSupport.support.extraParamsDict[_object] = customParam;
+
             _container.addChild(_object);
-            _propertyPanel.reloadData(_object, ParamUtil.getParams(TemplateData.editor_template, _object));
+            _propertyPanel.reloadData(_object, ParamUtil.getParams(TemplateData.editor_template, _object), customParam);
         }
 
         private function createPropertyPanel():void

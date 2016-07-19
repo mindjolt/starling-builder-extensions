@@ -6,9 +6,9 @@ package starlingbuilder.extensions.particle
     import starling.display.DisplayObject;
     import starling.textures.Texture;
 
-    import starlingbuilder.extensions.uicomponents.IDisplayObjectFactory;
+    import starlingbuilder.extensions.uicomponents.AbstractDisplayObjectFactory;
 
-    public class FFParticleSpriteFactory implements IDisplayObjectFactory
+    public class FFParticleSpriteFactory extends AbstractDisplayObjectFactory
     {
         [Embed(source="default.png")]
         public static const TEXTURE:Class;
@@ -16,7 +16,7 @@ package starlingbuilder.extensions.particle
         [Embed(source="default.pex", mimeType="application/octet-stream")]
         public static const CONFIG:Class;
 
-        public function create():DisplayObject
+        override public function create():DisplayObject
         {
             var sprite:FFParticleSprite = new FFParticleSprite();
             sprite.texture = Texture.fromBitmap(new TEXTURE);
