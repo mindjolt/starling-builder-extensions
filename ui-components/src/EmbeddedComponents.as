@@ -9,6 +9,10 @@ package
 
     import starling.extensions.pixelmask.PixelMaskDisplayObject;
 
+    import starlingbuilder.extensions.animation.DBAssetMediator;
+
+    import starlingbuilder.extensions.animation.DBSprite;
+
     import starlingbuilder.extensions.particle.FFParticleSprite;
 
     import starlingbuilder.extensions.uicomponents.ContainerButton;
@@ -19,6 +23,6 @@ package
         [Embed(source="custom_component_template.json", mimeType="application/octet-stream")]
         public static const custom_component_template:Class;
 
-        public static const linkers:Array = [PixelMaskDisplayObject, ContainerButton, GradientQuad, Gauge, FFParticleSprite];
+        public static const linkers:Array = [PixelMaskDisplayObject, ContainerButton, GradientQuad, Gauge, FFParticleSprite, DBSprite, DBAssetMediator];
     }
 }

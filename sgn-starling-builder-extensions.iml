@@ -8,6 +8,9 @@
             <entry library-id="48a59659-68b8-403f-9ecd-af4e79fc3cb3">
               <dependency linkage="Merged" />
             </entry>
+            <entry library-id="d0187e17-bdf6-4c8a-a96a-a2b166384340">
+              <dependency linkage="Merged" />
+            </entry>
           </entries>
           <sdk name="AIRSDK" />
         </dependencies>
@@ -36,6 +39,9 @@
             <entry library-id="b2425b56-44f7-4f57-8ad1-2071de638498">
               <dependency linkage="Merged" />
             </entry>
+            <entry library-id="84b2500e-6637-4bfa-9f58-e30706dd22ad">
+              <dependency linkage="Merged" />
+            </entry>
           </entries>
           <sdk name="AIRSDK" />
         </dependencies>
@@ -48,6 +54,9 @@
         <dependencies>
           <entries>
             <entry library-id="c2906ac6-f397-454b-a5c2-9bca65576d13">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-id="56997d18-4dcb-4828-a63e-7b474bc56acb">
               <dependency linkage="Merged" />
             </entry>
           </entries>
@@ -116,6 +125,39 @@
         <JAVADOC />
         <SOURCES />
         <jarDirectory url="file://$MODULE_DIR$/starling-builder-editor/libs" recursive="false" />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library type="flex">
+        <properties id="d0187e17-bdf6-4c8a-a96a-a2b166384340" />
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/libs" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+        <jarDirectory url="file://$MODULE_DIR$/libs" recursive="false" />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library type="flex">
+        <properties id="84b2500e-6637-4bfa-9f58-e30706dd22ad" />
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/libs" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+        <jarDirectory url="file://$MODULE_DIR$/libs" recursive="false" />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library type="flex">
+        <properties id="56997d18-4dcb-4828-a63e-7b474bc56acb" />
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/libs" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+        <jarDirectory url="file://$MODULE_DIR$/libs" recursive="false" />
       </library>
     </orderEntry>
   </component>

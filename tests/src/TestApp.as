@@ -13,6 +13,8 @@ package {
     import feathers.layout.AnchorLayout;
     import feathers.themes.TestGameMobileTheme;
 
+    import flash.filesystem.File;
+
     import flash.utils.Dictionary;
 
     import starling.core.Starling;
@@ -44,6 +46,8 @@ package {
     import starlingbuilder.engine.IUIBuilder;
     import starlingbuilder.engine.UIBuilder;
     import starlingbuilder.engine.util.ParamUtil;
+    import starlingbuilder.extensions.animation.DBAssetMediator;
+    import starlingbuilder.extensions.animation.DBSpriteFactory;
     import starlingbuilder.extensions.particle.FFParticleSpriteFactory;
     import starlingbuilder.extensions.uicomponents.ContainerButtonFactory;
     import starlingbuilder.extensions.uicomponents.GradientQuadFactory;
@@ -70,7 +74,7 @@ package {
          */
         public static const SINGLE_COMPONENT:Class = ImageFactory;
 
-        public static const ALL_COMPONENTS:Array = [ImageFactory, ContainerButtonFactory, GradientQuadFactory, GaugeFactory, PixelMaskDisplayObjectFactory, FFParticleSpriteFactory];
+        public static const ALL_COMPONENTS:Array = [ImageFactory, ContainerButtonFactory, GradientQuadFactory, GaugeFactory, PixelMaskDisplayObjectFactory, FFParticleSpriteFactory, DBSpriteFactory];
 
         public static var TEST_ALL:Boolean = false;
 
@@ -101,14 +105,7 @@ package {
 
             setupComponentRenderSupport();
 
-            _container = new Sprite();
-            _container.x = 200;
-            _container.y = 200;
-            addChild(_container);
 
-            createPropertyPanel();
-
-            test();
         }
 
 
@@ -157,10 +154,29 @@ package {
             var assetManager:AssetManager = new AssetManager();
             assetManager.addTexture("texture", texture);
             assetManager.addTexture("icon", icon);
-            AssetTab.assetList = assetManager.getTextureNames();
-            var mediator:IAssetMediator = new AssetMediator(assetManager);
-            var uiBuilder:IUIBuilder = new UIBuilder(mediator, true);
-            ComponentRenderSupport.support = new ComponentRenderSupport(mediator, new Dictionary(), uiBuilder);
+
+            assetManager.enqueue(File.applicationDirectory.resolvePath("dbanimations"));
+
+            assetManager.loadQueue(function(ratio:Number):void{
+                if (ratio == 1)
+                {
+                    AssetTab.assetList = assetManager.getTextureNames();
+                    var mediator:IAssetMediator = new DBAssetMediator(assetManager);
+                    var uiBuilder:IUIBuilder = new UIBuilder(mediator, true);
+                    ComponentRenderSupport.support = new ComponentRenderSupport(mediator, new Dictionary(), uiBuilder);
+
+                    _container = new Sprite();
+                    _container.x = 200;
+                    _container.y = 200;
+                    addChild(_container);
+
+                    createPropertyPanel();
+
+                    test();
+                }
+            });
+
+
         }
 
         private function test():void

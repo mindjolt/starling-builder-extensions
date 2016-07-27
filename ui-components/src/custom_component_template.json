@@ -73,6 +73,21 @@
             ],
             "customParams":{},
             "tag":"container"
+        },
+
+        {
+            "cls":"starlingbuilder.extensions.animation.DBSprite",
+            "constructorParams":
+                [
+                    {"cls":"starlingbuilder.engine.IAssetMediator"}
+                ],
+            "params":[
+                {"name":"armatureName", "default_value":null},
+                {"name":"animationName", "default_value":null},
+                {"name":"autoPlay", "component":"check", "default_value":true}
+            ],
+            "customParams":{},
+            "tag":"container"
         }
     ]
 }
