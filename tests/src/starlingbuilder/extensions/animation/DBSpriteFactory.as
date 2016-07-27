@@ -16,6 +16,7 @@ package starlingbuilder.extensions.animation
             sprite.y = 250;
             sprite.armatureName = "Dragon";
             sprite.animationName = "walk";
+            sprite.autoPlay = true;
             return sprite;
         }
     }

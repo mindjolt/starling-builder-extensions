@@ -26,7 +26,7 @@ package starlingbuilder.extensions.animation
         protected var _animationName:String;
 
         protected var _armature:Armature;
-        protected var _autoPlay:Boolean = true;
+        protected var _autoPlay:Boolean = false;
 
         public function DBSprite(assetMediator:IAssetMediator)
         {

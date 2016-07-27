@@ -84,7 +84,7 @@
             "params":[
                 {"name":"armatureName", "default_value":null},
                 {"name":"animationName", "default_value":null},
-                {"name":"autoPlay", "component":"check", "default_value":true}
+                {"name":"autoPlay", "component":"check", "default_value":false}
             ],
             "customParams":{},
             "tag":"container"
