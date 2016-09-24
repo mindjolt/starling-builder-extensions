@@ -45,6 +45,9 @@
             <entry library-id="d7342224-94ee-45b5-94f9-b9f9bd6e9e70">
               <dependency linkage="Merged" />
             </entry>
+            <entry library-id="12cdff9b-5270-4bb3-8014-6bbbf5c4a7ac">
+              <dependency linkage="Merged" />
+            </entry>
           </entries>
           <sdk name="AIRSDK" />
         </dependencies>
@@ -60,6 +63,9 @@
               <dependency linkage="Merged" />
             </entry>
             <entry library-id="be4790bb-bb55-4433-81d0-3c5115edb83d">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-id="50b936b2-8a17-4c58-bd3e-addd4ee21f13">
               <dependency linkage="Merged" />
             </entry>
           </entries>
@@ -166,6 +172,26 @@
         <properties id="be4790bb-bb55-4433-81d0-3c5115edb83d" />
         <CLASSES>
           <root url="jar://$MODULE_DIR$/../sgn-starling-builder-editor/libs/as3commons-reflect-1.6.4.swc!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library type="flex">
+        <properties id="12cdff9b-5270-4bb3-8014-6bbbf5c4a7ac" />
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/starling-builder-editor/libs/as3corelib.swc!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library type="flex">
+        <properties id="50b936b2-8a17-4c58-bd3e-addd4ee21f13" />
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/starling-builder-editor/libs/as3corelib.swc!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
