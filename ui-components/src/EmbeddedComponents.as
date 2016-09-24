@@ -6,6 +6,8 @@ package
     import flash.display.Sprite;
 
     import starling.extensions.Gauge;
+    import starling.extensions.lighting.LightSource;
+    import starling.extensions.lighting.LightStyle;
 
     import starling.extensions.pixelmask.PixelMaskDisplayObject;
 
@@ -17,6 +19,6 @@ package
         [Embed(source="custom_component_template.json", mimeType="application/octet-stream")]
         public static const custom_component_template:Class;
 
-        public static const linkers:Array = [ContainerButton, GradientQuad, Gauge];
+        public static const linkers:Array = [ContainerButton, GradientQuad, Gauge, LightSource, LightStyle];
     }
 }

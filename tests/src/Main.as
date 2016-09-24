@@ -10,8 +10,6 @@ package {
     import flash.events.Event;
     import starling.core.Starling;
     import starling.utils.Align;
-    import starling.utils.HAlign;
-    import starling.utils.VAlign;
 
     [SWF(frameRate=60, width=800, height=800, backgroundColor="#000")]
     public class Main extends Sprite
