@@ -62,6 +62,8 @@ package {
 
         private static const LINKERS:Array = [DefaultEditPropertyPopup, DisplayObjectPropertyPopup, TexturePropertyPopup, TextureConstructorPopup, ImageGridPopup];
 
+        private static const EXTENSIONS:Array = [EmbeddedComponents];
+
         /**
          * Replace UI factory you would like to test here
          */
@@ -129,7 +131,7 @@ package {
 
         private function createPropertyPanel():void
         {
-            TemplateData.load(new EmbeddedComponents.custom_component_template());
+            mergeTemplates();
 
             _propertyPanel = new PropertyPanel();
 
@@ -176,6 +178,18 @@ package {
                 Starling.current.juggler.delayCall(function():void{
                     testAll(id);
                 }, 0.5);
+            }
+        }
+
+        private function mergeTemplates():void
+        {
+            for each (var cls:Class in EXTENSIONS)
+            {
+                if ("custom_component_template" in cls)
+                {
+                    var data:Object = new cls.custom_component_template();
+                    TemplateData.load(JSON.parse(data.toString()));
+                }
             }
         }
     }
