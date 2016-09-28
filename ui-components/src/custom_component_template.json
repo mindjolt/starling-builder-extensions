@@ -82,6 +82,17 @@
                 {"name":"shininess", "component":"slider", "min":0, "max":32, "step":1, "default_value":1}
             ],
             "tag":"ignore_default"
+        },
+        
+        {
+            "cls":"starling.extensions.pixelmask.PixelMaskDisplayObject",
+            "params":[
+                {"name":"pixelMask", "component":"popup", "cls":true, "disable":true, "default_value":null, "editPropertyClass":"starlingbuilder.editor.ui.DisplayObjectPropertyPopup"},
+                {"name":"isAnimated", "component":"check", "default_value":true},
+                {"name":"inverted", "component":"check", "default_value":false}
+            ],
+            "container":true,
+            "tag":"container"
         }
     ],
 
