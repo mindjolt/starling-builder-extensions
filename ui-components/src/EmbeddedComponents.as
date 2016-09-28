@@ -6,6 +6,7 @@ package
     import flash.display.Sprite;
 
     import starling.extensions.Gauge;
+    import starling.extensions.TextureMaskStyle;
     import starling.extensions.lighting.LightSource;
     import starling.extensions.lighting.LightStyle;
 
@@ -19,6 +20,6 @@ package
         [Embed(source="custom_component_template.json", mimeType="application/octet-stream")]
         public static const custom_component_template:Class;
 
-        public static const linkers:Array = [ContainerButton, GradientQuad, Gauge, LightSource, LightStyle];
+        public static const linkers:Array = [ContainerButton, GradientQuad, Gauge, TextureMaskStyle, LightSource, LightStyle];
     }
 }

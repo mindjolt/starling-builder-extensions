@@ -52,6 +52,14 @@
         },
 
         {
+            "cls":"starling.extensions.TextureMaskStyle",
+            "params":[
+                {"name":"threshold", "component":"slider", "min":0, "max":1, "step":0.01, "default_value":0.5}
+            ],
+            "tag":"ignore_default"
+        },
+
+        {
             "cls":"starling.extensions.lighting.LightSource",
             "params":[
                 {"name":"type", "component":"pickerList", "options":["point", "ambient", "directional"], "default_value":"point"},
@@ -78,6 +86,6 @@
     ],
 
     "group":{
-        "style":["starling.extensions.lighting.LightStyle"]
+        "style":["starling.extensions.TextureMaskStyle", "starling.extensions.lighting.LightStyle"]
     }
 }
