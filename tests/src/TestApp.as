@@ -9,6 +9,7 @@ package {
 
     import feathers.controls.LayoutGroup;
     import feathers.core.IFeathersControl;
+    import feathers.core.PopUpManager;
     import feathers.layout.AnchorLayout;
     import feathers.themes.TestGameMobileTheme;
 
@@ -30,6 +31,7 @@ package {
 
     import starlingbuilder.editor.data.TemplateData;
     import starlingbuilder.editor.helper.AssetMediator;
+    import starlingbuilder.editor.themes.BaseMetalWorksDesktopTheme2;
     import starlingbuilder.editor.themes.IUIEditorThemeMediator;
     import starlingbuilder.editor.themes.MetalWorksDesktopTheme2;
     import starlingbuilder.editor.ui.AbstractPropertyPopup;
@@ -95,6 +97,7 @@ package {
 
             new MetalWorksDesktopTheme2(this);
             new TestGameMobileTheme(this);
+            PopUpManager.overlayFactory = BaseMetalWorksDesktopTheme2.popUpOverlayFactory;
 
             texture = Texture.fromBitmap(new TEXTURE);
             icon = Texture.fromBitmap(new ICON);
